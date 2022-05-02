@@ -14,6 +14,12 @@
       <div><%= t :app_name %></div>
     </nav>
 
+    <div id='flash'>
+      <% flash.each do |type, message| %>
+        <%= content_tag :div, message, class: type %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

@@ -8,11 +8,8 @@ class ApplicationController < ActionController::Base
       locale = params[:locale].match(/[a-zA-Z]{2}/).to_s.to_sym
       if I18n.available_locales.exclude?(locale)
         locale = :en
-        flash[:notice] = 'Unsuported language. You were directed to the English version.'
+        flash[:notice] = 'The requested language is not available. You were redirected to the English version of the website.'
       end
-      # locale = I18n.available_locales.include?(locale) ?
-      #         locale : 
-      #         I18n.default_locale
     end
     # locale = current_user.try(:locale) || I18n.default_locale # persists choice for logged users
     I18n.with_locale(locale, &action)
