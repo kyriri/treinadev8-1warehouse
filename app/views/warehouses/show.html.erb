@@ -1,0 +1,9 @@
+<h1><%= @warehouse.code + ' - ' + @warehouse.name %></h1>
+<dl>
+  <dt>Área:</dt>
+  <dd><%= @warehouse.area %> m²</dd>
+  <dt>Descrição:</dt>
+  <dd><%= @warehouse.description %></dd>
+  <dt>Endereço:</dt>
+  <dd><%= "#{@warehouse.directions}, #{@warehouse.city} - #{@warehouse.cep}" %></dd>
+</dl>
