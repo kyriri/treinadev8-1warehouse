@@ -5,7 +5,7 @@ describe 'User requests page' do
     visit root_path
 
     expect(page).to have_css('nav', text: 'Galpões')
-    expect(page).not_to have_text('The requested language is not available. You were redirected to the English version of the website.')
+    expect(page).not_to have_text('The requested language is not available. You were directed to the English version of the website.')
   end
 
   it 'in Portuguese and sees it in Portuguese' do
