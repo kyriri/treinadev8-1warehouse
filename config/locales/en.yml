@@ -1,5 +1,7 @@
 en:
   app_name: 'Warehouses & Inventory'
+  warehouses_title: 'Warehouses'
+  warehouses_0: 'No warehouses were found.'
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
