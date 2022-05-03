@@ -1,17 +1,19 @@
-<h1><%= t :warehouses_title %></h1>
+<section id='warehouses'>
+  <h1><%= t :warehouses_title %></h1>
 
-  <% if @warehouses.empty? %>
-    <div>
-      <%= t :warehouses_0 %>
-    </div>
-  <% else %>
-    <dl>
-      <% @warehouses.each do |w| %>
-        <dt><%= link_to "#{w.code} - #{w.name}", w %> </dt>
-        <dd>
-          <%= w.city %>
-          <%= w.area %> m²
-        </dd>
-      <% end %>
-    </dl>
-  <% end %>
+    <% if @warehouses.empty? %>
+      <div>
+        <%= t :warehouses_0 %>
+      </div>
+    <% else %>
+      <dl>
+        <% @warehouses.each do |w| %>
+          <dt><%= link_to "#{w.code} - #{w.name}", w %> </dt>
+          <dd>
+            <%= w.city %>
+            <%= w.area %> m²
+          </dd>
+        <% end %>
+      </dl>
+    <% end %>
+</section>
