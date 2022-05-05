@@ -6,6 +6,7 @@ describe 'User visits warehouse details page' do
                           directions: "Caminho do Mar, 950 - perto do posto Piranga'y",
                           city: 'Ananindeua',
                           cep: '67140-000',
+                          state: 'PA',
                           description: 'Handles deliveries for PA and MA.')
     
     visit root_path
@@ -15,7 +16,7 @@ describe 'User visits warehouse details page' do
     expect(page).to have_content('BEL')
     expect(page).to have_content('10000 m²')
     expect(page).to have_content("Caminho do Mar, 950 - perto do posto Piranga'y")
-    expect(page).to have_content('Ananindeua')
+    expect(page).to have_content('Ananindeua, PA')
     expect(page).to have_content('67140-000')
     expect(page).to have_content('Handles deliveries for PA and MA.')
   end
@@ -25,6 +26,7 @@ describe 'User visits warehouse details page' do
                           directions: "Caminho do Mar, 950 - perto do posto Piranga'y",
                           city: 'Ananindeua',
                           cep: '67140-000',
+                          state: 'PA',
                           description: 'Handles deliveries for PA and MA.')
 
     visit warehouse_path(pa.id)

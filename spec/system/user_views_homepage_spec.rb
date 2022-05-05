@@ -8,15 +8,15 @@ describe 'User visits homepage' do
   end
 
   it 'and see warehouses' do
-    Warehouse.create!(name: 'Belém', code: 'BEL', city: 'Ananindeua', area: 10_000)
-    Warehouse.create!(name: 'São Paulo', code: 'SAO', city: 'Osasco', area: 50_000)
+    Warehouse.create!(name: 'Belém', code: 'BEL', city: 'Ananindeua', state: 'PA', area: 10_000)
+    Warehouse.create!(name: 'São Paulo', code: 'SAO', city: 'Osasco', state: 'SP', area: 50_000)
 
     visit('/')
 
     expect(page).not_to have_content('Nenhum galpão cadastrado.')
     expect(page).to have_content('Belém')
-    expect(page).to have_content('SAO')
-    expect(page).to have_content('Ananindeua')
+    expect(page).to have_content('BEL')
+    expect(page).to have_content('Osasco - SP')
     expect(page).to have_content('50000 m²')
   end
 

@@ -10,7 +10,7 @@
         <% @warehouses.each do |w| %>
           <dt><%= link_to "#{w.code} - #{w.name}", w %> </dt>
           <dd>
-            <%= w.city %>
+            <%= "#{w.city} - #{w.state}" %>
             <%= w.area %> m²
           </dd>
         <% end %>
