@@ -1,0 +1,23 @@
+<%= form_with model: @new_warehouse do |form| %>
+<dl>
+  <dt><%= form.label :name, 'Nome:' %></dt>
+  <dd><%= form.text_field :name %></dd>
+  <dt><%= form.label :code, 'Código:' %></dt>
+  <dd><%= form.text_field :code %></dd>
+  <dt><%= form.label :area, 'Área:' %></dt>
+  <dd><%= form.number_field :area %></dd>
+  <dt><%= form.label :description, 'Descrição:' %></dt>
+  <dd><%= form.text_area :description, size: '30x5', placeholder: 'Principais atividades deste galpão.' %></dd>
+  <div>Endereço</div>
+  <dt><%= form.label :directions, 'Linha 1:' %></dt>
+  <dd><%= form.text_field :directions %></dd>
+  <dt><%= form.label :city, 'Cidade:' %></dt>
+  <dd><%= form.text_field :city %></dd>
+  <dt><%= form.label :state, 'Estado:' %></dt>
+  <dd><%= form.text_field :state %></dd>
+  <dt><%= form.label :cep, 'CEP:' %></dt>
+  <dd><%= form.text_field :cep %></dd>
+  <%= form.submit 'Salvar' %>
+</dl>
+
+<% end %>
