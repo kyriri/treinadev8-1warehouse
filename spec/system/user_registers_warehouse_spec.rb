@@ -20,15 +20,16 @@ describe 'User tries to register a new warehouse' do
   expect(Warehouse.last.name).to eq('Belém')
   end
 
-  xit 'but something goes wrong' do
+  it 'but not all fields are filled' do
     visit new_warehouse_path
+    fill_in 'Nome', with: ''
     click_on 'Salvar'
 
     expect(page).to have_text('Houve um problema. O galpão não foi salvo.')
-
-    expect(page).to have_text()
   end
 
-  xit 'but some fields are missing' do
+  xit "but code doesn't have 3 chars" do
+    # Constrain Warehouse codes to 3 chars
+    # validates :registration_number, length: { is: 6 }
   end
 end

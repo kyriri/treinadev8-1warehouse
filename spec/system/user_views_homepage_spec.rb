@@ -8,8 +8,18 @@ describe 'User visits homepage' do
   end
 
   it 'and see warehouses' do
-    Warehouse.create!(name: 'Belém', code: 'BEL', city: 'Ananindeua', state: 'PA', area: 10_000)
-    Warehouse.create!(name: 'São Paulo', code: 'SAO', city: 'Osasco', state: 'SP', area: 50_000)
+    Warehouse.create!(name: 'Belém', code: 'BEL', area: 10_000,
+                      directions: "Caminho do Mar, 950 - perto do posto Piranga'y",
+                      city: 'Ananindeua',
+                      cep: '67140-000',
+                      state: 'PA',
+                      description: 'Handles deliveries for PA and MA.')
+    Warehouse.create!(name: 'São Paulo', code: 'SAO', area: 50_000,
+                      directions: "Caminho do Mar, 950 - perto do posto Piranga'y",
+                      city: 'Osasco',
+                      cep: '05520-000',
+                      state: 'SP',
+                      description: 'Main packaging plant')
 
     visit('/')
 
@@ -21,7 +31,7 @@ describe 'User visits homepage' do
   end
 
   it 'and there are no warehouses to display' do
-    visit('/')
+    visit root_path
 
     expect(page).to have_content('Nenhum galpão cadastrado.')
   end
