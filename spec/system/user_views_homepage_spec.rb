@@ -35,5 +35,12 @@ describe 'User visits homepage' do
 
     expect(page).to have_content('Nenhum galpão cadastrado.')
   end
+
+  it 'from any other page in the application' do
+    visit new_warehouse_path
+    click_on 'Galpões & Estoque'
+
+    expect(current_path).to eq('/')
+  end
 end
 
