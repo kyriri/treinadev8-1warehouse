@@ -1,0 +1,24 @@
+pt-BR:
+  app_name: Galpões & Estoque
+  warehouses_title: Galpões
+  warehouses_0: Nenhum galpão cadastrado.
+
+  activerecord:
+    errors:
+      models:
+        warehouse:
+          attributes:
+            cep:
+              invalid: deve ter formato 00000-000
+    models:
+      warehouse: Galpão
+    attributes:
+      warehouse:
+        name: Nome
+        code: Código
+        area: Área
+        directions: Linha 1
+        city: Cidade
+        state: Estado
+        cep: CEP
+        description: Descrição

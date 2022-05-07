@@ -1,23 +1,23 @@
 <%= form_with model: @new_warehouse do |form| %>
 <dl>
-  <dt><%= form.label :name, 'Nome:' %></dt>
+  <dt><%= form.label :name %></dt>
   <dd><%= form.text_field :name %></dd>
-  <dt><%= form.label :code, 'Código:' %></dt>
+  <dt><%= form.label :code %></dt>
   <dd><%= form.text_field :code %></dd>
-  <dt><%= form.label :area, 'Área:' %></dt>
+  <dt><%= form.label :area %></dt>
   <dd><%= form.number_field :area %></dd>
-  <dt><%= form.label :description, 'Descrição:' %></dt>
+  <dt><%= form.label :description %></dt>
   <dd><%= form.text_area :description, size: '30x5', placeholder: 'Principais atividades deste galpão.' %></dd>
   <div>Endereço</div>
-  <dt><%= form.label :directions, 'Linha 1:' %></dt>
+  <dt><%= form.label :directions %></dt>
   <dd><%= form.text_field :directions %></dd>
-  <dt><%= form.label :city, 'Cidade:' %></dt>
+  <dt><%= form.label :city %></dt>
   <dd><%= form.text_field :city %></dd>
-  <dt><%= form.label :state, 'Estado:' %></dt>
+  <dt><%= form.label :state %></dt>
   <dd><%= form.text_field :state %></dd>
-  <dt><%= form.label :cep, 'CEP:' %></dt>
+  <dt><%= form.label :cep %></dt>
   <dd><%= form.text_field :cep %></dd>
-  <%= form.submit 'Salvar' %>
+  <%= form.submit %>
 </dl>
 
 <% end %>

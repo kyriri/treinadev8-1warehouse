@@ -13,7 +13,7 @@ describe 'User tries to register a new warehouse' do
   fill_in 'Estado', with: 'PA'
   fill_in 'CEP', with: '67140-000'
   fill_in 'Descrição', with: 'Handles deliveries for PA and MA.'
-  click_on 'Salvar'
+  click_on 'Registrar Galpão'
 
   expect(current_path).to eq(new_warehouse_path)
   expect(page).to have_text("Galpão BEL salvo com sucesso")
@@ -23,7 +23,7 @@ describe 'User tries to register a new warehouse' do
   it 'but not all fields are filled' do
     visit new_warehouse_path
     fill_in 'Nome', with: ''
-    click_on 'Salvar'
+    click_on 'Registrar Galpão'
 
     expect(page).to have_text('Houve um problema. O galpão não foi salvo.')
   end

@@ -3,6 +3,13 @@ en:
   warehouses_title: 'Warehouses'
   warehouses_0: 'No warehouses were found.'
 
+  activerecord:
+      errors:
+        models:
+          warehouse:
+            attributes:
+              cep:
+                invalid: should be formated as 00000-000
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
