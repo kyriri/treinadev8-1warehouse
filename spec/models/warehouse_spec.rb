@@ -146,5 +146,20 @@ RSpec.describe Warehouse, type: :model do
         expect(warehouse2).not_to be_valid
       end
     end
+
+    context '(syntax validation)' do
+      it 'is false when cep is not of type 00000-000' do
+        warehouse1 = Warehouse.new(name: '.', code: 'MXP', area: 1, directions: '.', city: '.', state: '.',
+                                  cep: '12345000', description: '.')
+        warehouse2 = Warehouse.new(name: '.', code: 'MXP', area: 1, directions: '.', city: '.', state: '.',
+                                  cep: 'nn345000', description: '.')
+        warehouse3 = Warehouse.new(name: '.', code: 'MXP', area: 1, directions: '.', city: '.', state: '.',
+                                  cep: '12-3451234', description: '.')
+        
+        expect(warehouse1).not_to be_valid
+        expect(warehouse2).not_to be_valid
+        expect(warehouse3).not_to be_valid
+      end
+    end
   end
 end
