@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if params[:locale].nil?
       locale = I18n.default_locale
     else
-      locale = params[:locale].match(/[a-zA-Z]{2}/).to_s.to_sym
+      locale = params[:locale].match(/[a-zA-Z-]{2,}/).to_s.to_sym
       if I18n.available_locales.exclude?(locale)
         locale = :en
         flash[:notice] = 'The requested language is not available. You were redirected to the English version of the website.'

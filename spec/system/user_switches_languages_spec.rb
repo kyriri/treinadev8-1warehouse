@@ -9,7 +9,7 @@ describe 'User requests page' do
   end
 
   it 'in Portuguese and sees it in Portuguese' do
-    visit '/?locale=pt'
+    visit '/?locale=pt-BR'
 
     expect(page).to have_css('nav', text: 'Galpões')
   end
