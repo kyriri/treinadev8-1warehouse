@@ -113,6 +113,21 @@ RSpec.describe Warehouse, type: :model do
     end
 
     context '(uniqueness validation)' do
+      it 'is false when name was already in use' do
+        Warehouse.create(name: 'Oompa Loompa', code: 'CHF', area: 1_000,
+                        directions: 'Av. Rocher, s/n',
+                        city: 'Chocolândia', state: 'SC',
+                        cep: '15520-000',
+                        description: 'Handles all chocolate products, including Easter eggs')
+        warehouse = Warehouse.new(name: 'Oompa Loompa', code: 'FAB', area: 5_000,
+                                  directions: 'Via Laktea, 35',
+                                  city: 'Cacaulândia', state: 'PR',
+                                  cep: '25045-989',
+                                  description: 'Packages chocolate products.')
+          
+        expect(warehouse).not_to be_valid
+      end
+
       it 'is false when code was already in use' do
         Warehouse.create(name: 'Oompa Loompa', code: 'CHF', area: 1_000,
                         directions: 'Av. Rocher, s/n',
