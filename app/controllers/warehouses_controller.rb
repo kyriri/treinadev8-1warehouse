@@ -4,12 +4,12 @@ class WarehousesController < ApplicationController
   end
 
   def new
-    @new_warehouse = Warehouse.new
+    @warehouse = Warehouse.new
   end
 
   def create
-    @new_warehouse = Warehouse.new(warehouse_params)
-    if @new_warehouse.save
+    @warehouse = Warehouse.new(warehouse_params)
+    if @warehouse.save
       # flash[:notice] = "Galpão #{Warehouse.last.code} salvo com sucesso"
       redirect_to new_warehouse_path, notice: "Galpão #{Warehouse.last.code} salvo com sucesso"
     else
