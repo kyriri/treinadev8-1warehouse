@@ -15,5 +15,9 @@
   <%= link_to 'Voltar', root_path %>
 </div>
 <div>
+  <%# link_to 'Apagar galpão', warehouse_path(@warehouse), method: :delete %>
+  <%= button_to 'Apagar galpão', warehouse_path(@warehouse), method: :delete %>
+</div>
+<div>
   <%= link_to 'Editar galpão', edit_warehouse_path %>
 </div>
