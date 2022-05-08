@@ -47,5 +47,7 @@ describe 'User tries to register a new warehouse' do
     expect(page).to have_text('Houve um problema. O galpão não foi salvo.')
     expect(page).not_to have_text('salvo com sucesso')
     expect(page).to have_text('CEP deve ter formato 00000-000').once
+    expect(page).to have_field('Nome', with: 'Belém')
+    expect(page).to have_field('Área', with: 10_000)
   end
 end
