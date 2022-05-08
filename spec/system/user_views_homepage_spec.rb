@@ -15,7 +15,7 @@ describe 'User visits homepage' do
                       state: 'PA',
                       description: 'Handles deliveries for PA and MA.')
     Warehouse.create!(name: 'São Paulo', code: 'SAO', area: 50_000,
-                      directions: "Caminho do Mar, 950 - perto do posto Piranga'y",
+                      directions: 'Av. Continental, 4.500',
                       city: 'Osasco',
                       cep: '05520-000',
                       state: 'SP',
