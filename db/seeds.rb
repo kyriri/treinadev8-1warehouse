@@ -23,7 +23,7 @@ Warehouse.create!([{name: 'Belém',
                     directions: "Rua dos Automobilistas, s/n",
                     city: 'Osasco', 
                     state: 'SP', 
-                    cep: '0615-040',
+                    cep: '06215-040',
                     description: 'Main packaging facility, and deliveries to West of São Paulo.',
                   }])
 
