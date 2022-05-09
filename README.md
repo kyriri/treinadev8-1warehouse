@@ -45,4 +45,4 @@ On the app directory, run
 `$ rspec`   
   
 ### Other info
-App developed in the context of the [Treinadev](https://treinadev.com.br/) bootcamp)
+App developed in the context of the [Treinadev](https://treinadev.com.br/) bootcamp
