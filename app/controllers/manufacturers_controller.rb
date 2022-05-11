@@ -21,6 +21,20 @@ class ManufacturersController < ApplicationController
     end
   end
 
+  def edit
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
+  def update
+    @manufacturer = Manufacturer.find(params[:id])
+    if @manufacturer.update(manuf_params)
+      redirect_to @manufacturer, notice: 'Dados atualizados com sucesso'
+    else
+      flash.now[:alert] = 'Houve um erro. Os dados não foram atualizados.'
+      render :edit
+    end
+  end
+
   private
 
   def manuf_params
