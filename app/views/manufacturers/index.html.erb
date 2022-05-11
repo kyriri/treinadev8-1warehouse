@@ -1,6 +1,10 @@
 <h1>Fornecedores</h1>
 
 <div>
+  <%= link_to 'Cadastrar novo fornecedor', new_manufacturer_path %>
+</div>
+
+<div>
   <% if @manufacturers.empty? %>
     <%= 'Nenhum fornecedor cadastrado' %>
   <% else %>

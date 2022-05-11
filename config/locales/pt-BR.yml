@@ -12,6 +12,7 @@ pt-BR:
               invalid: deve ter formato 00000-000
     models:
       warehouse: Galpão
+      manufacturer: Fornecedor
     attributes:
       warehouse:
         name: Nome
@@ -22,3 +23,10 @@ pt-BR:
         state: Estado
         cep: CEP
         description: Descrição
+      manufacturer:
+        tradename: Nome fantasia
+        registered_name: Razão social
+        address: Endereço
+        email: E-mail
+        telephone: Telefone
+        cnpj: CNPJ
