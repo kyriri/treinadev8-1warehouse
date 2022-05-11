@@ -50,12 +50,31 @@ RSpec.describe Manufacturer, type: :model do
 
     context '(numericality validation)' do
       it 'is false when cnpj is not a number' do
-        manuf = Manufacturer.new(tradename: '',
+        manuf = Manufacturer.new(tradename: 'Pear',
                                 registered_name: 'Pear do Brasil LTDA',
                                 address: 'Av. Cooper Tinu, 3 - Manaus, AM',
                                 email: 'comercial@pear.com.br',
                                 telephone: '(92) 3026-8573',
                                 cnpj: '123km67890123')
+        
+        expect(manuf.valid?).to be false
+      end
+    end
+
+    context '(uniqueness validation)' do
+      it 'is false when cnpj was already in use' do
+        Manufacturer.create!(tradename: 'Pear',
+                            registered_name: 'Pear do Brasil LTDA',
+                            address: 'Av. Cooper Tinu, 3 - Manaus, AM',
+                            email: 'comercial@pear.com.br',
+                            telephone: '(92) 3026-8573',
+                            cnpj: 1234567890123)
+        manuf = Manufacturer.new(tradename: 'Pomme de terre',
+                                registered_name: 'Patatis Brasilis Ltda',
+                                address: 'Rodovia PR 354 km 12, Fritol',
+                                email: 'contato@pdt.com.br',
+                                telephone: '(45) 9 9656-0932',
+                                cnpj: 1234567890123)
         
         expect(manuf.valid?).to be false
       end
