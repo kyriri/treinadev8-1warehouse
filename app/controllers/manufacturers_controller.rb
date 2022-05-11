@@ -3,6 +3,10 @@ class ManufacturersController < ApplicationController
     @manufacturers = Manufacturer.order(:tradename)
   end
 
+  def show
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
   def new
     @manufacturer = Manufacturer.new
   end

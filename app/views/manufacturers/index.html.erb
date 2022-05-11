@@ -10,7 +10,7 @@
   <% else %>
   <ul>
     <% @manufacturers.each do |manuf| %>
-      <li><%= manuf.tradename %></li>
+      <li><%= link_to manuf.tradename, manuf %></li>
     <% end %>
   <% end %>
   </ul>

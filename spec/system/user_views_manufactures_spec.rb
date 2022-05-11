@@ -29,4 +29,21 @@ describe 'User visits Manufacturers page' do
     expect(page).to have_content('Nenhum fornecedor cadastrado')
   end
 
+  it 'and can access details for a Manufacturer' do
+    manuf = Manufacturer.create!(tradename: 'Pear',
+                                registered_name: 'Pear do Brasil LTDA',
+                                address: 'Av. Cooper Tinu, 3 - Manaus, AM',
+                                email: 'comercial@pear.com.br',
+                                telephone: '(92) 3026-8573',
+                                cnpj: 1234567890123)
+  
+    visit manufacturers_path
+    click_on 'Pear'
+    
+    expect(current_path).to eq(manufacturer_path(manuf.id))
+    expect(page).to have_content('Av. Cooper Tinu, 3 - Manaus, AM')
+    expect(page).to have_content('(92) 3026-8573')
+    # expect(page).to have_content('12.345.678/9012-34') # TODO correct CNPJ validation (should be 14 digits)
+  end
+
 end
