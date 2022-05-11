@@ -1,0 +1,13 @@
+<h1>Fornecedores</h1>
+
+<div>
+  <% if @manufacturers.empty? %>
+    <%= 'Nenhum fornecedor cadastrado' %>
+  <% else %>
+  <ul>
+    <% @manufacturers.each do |manuf| %>
+      <li><%= manuf.tradename %></li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
