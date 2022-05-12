@@ -16,7 +16,9 @@ describe 'User visits Manufacturers page' do
                         cnpj: 1234567890000)
   
     visit root_path
-    click_on 'Fornecedores'
+    within 'nav' do
+      click_on 'Fornecedores'
+    end
 
     expect(current_path).to eq(manufacturers_path)
     expect(page).to have_content('Pear')

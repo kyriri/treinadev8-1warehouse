@@ -38,7 +38,9 @@ describe 'User visits homepage' do
 
   it 'from any other page in the application' do
     visit new_warehouse_path
-    click_on 'Galpões & Estoque'
+    within 'nav' do
+      click_on 'Galpões & Estoque'
+    end
 
     expect(current_path).to eq('/')
   end
