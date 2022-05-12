@@ -9,7 +9,8 @@ describe 'User tries to register a product' do
                           address: 'Rodovia PR 354 km 12, Fritol', email: 'contato@pdt.com.br',
                           telephone: '(45) 9 9656-0932', cnpj: 1234567890000)
 
-    visit products_path
+    visit manufacturers_path
+    click_on 'Produtos'
     click_on 'Registrar novo produto'
     fill_in 'Nome', with: 'Poltrona Netflix Binge'
     fill_in 'Código', with: '12345678901234567890'
