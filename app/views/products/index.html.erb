@@ -1,0 +1,20 @@
+<h1>Produtos</h1>
+
+<% if @products.empty? %>
+  Não existem produtos cadastrados.
+<% else %>
+  <div>
+    <dl>
+      <% @products.each do |p| %>
+      <dt>Nome</dt>
+      <dd><%= link_to p.name, p %></dd>
+
+      <dt>Código</dt>
+      <dd><%= p.code %></dd>
+
+      <dt>Fornecedor</dt>
+      <dd><%= p.manufacturer.tradename %></dd>
+      <% end %>
+    </dl>
+  </div>
+<% end %>

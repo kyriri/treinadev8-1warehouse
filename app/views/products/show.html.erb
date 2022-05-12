@@ -1,0 +1,28 @@
+<h1>Detalhes do produto</h1>
+
+<div>
+  <dl>
+    <dt>Nome:</dt>
+    <dd><%= @product.name %></dd>
+
+    <dt>Fornecedor:</dt>
+    <dd><%= @product.manufacturer.tradename %></dd>
+
+    <dt>Código:</dt>
+    <dd><%= @product.code %></dd>
+
+    <dt>Peso:</dt>
+    <dd><%= @product.weight_in_grams > 999 ? "#{@product.weight_in_grams.to_f / 1000} kg" : "#{@product.weight_in_grams} g" %></dd>
+    
+    <div>Dimensões
+      <dt>Altura:</dt>
+      <dd><%= "#{@product.height_in_cm} cm" %></dd>
+
+      <dt>Largura:</dt>
+      <dd><%= "#{@product.length_in_cm} cm" %></dd>
+
+      <dt>Profundidade:</dt>
+      <dd><%= "#{@product.width_in_cm} cm" %></dd>
+    </div>
+  </dl>
+</div>
