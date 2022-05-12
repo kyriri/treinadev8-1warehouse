@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Warehouse.destroy_all
+Product.destroy_all
 Manufacturer.destroy_all
 
 Warehouse.create!([{name: 'Belém', 
@@ -28,11 +29,11 @@ Warehouse.create!([{name: 'Belém',
                     description: 'Main packaging facility, and deliveries to West of São Paulo.',
                   }])
 
-Manufacturer.create!([{tradename: 'Pear',
-                      registered_name: 'Pear do Brasil LTDA',
-                      address: 'Av. Cooper Tinu, 3 - Manaus, AM',
-                      email: 'comercial@pear.com.br',
-                      telephone: '(92) 3026-8573',
+Manufacturer.create!([{tradename: 'Vesuvia', 
+                      registered_name: 'Serralheria Vesuvia ME Ltda',
+                      address: 'Estrada dos Pinhais, km 4, SC', 
+                      email: 'livia@vesuvia.com.br',
+                      telephone: '(49) 9 9450-9384', 
                       cnpj: 1234567890123,
                     }, {
                       tradename: 'Pomme de terre',
@@ -43,5 +44,23 @@ Manufacturer.create!([{tradename: 'Pear',
                       cnpj: 1234567890000,
                     }])
 
+Product.create!([{name: 'Clearksy table', 
+                  code: '12345678901234567890', 
+                  weight_in_grams: 5000, 
+                  height_in_cm: 150, 
+                  width_in_cm: 120, 
+                  length_in_cm: 200, 
+                  manufacturer: Manufacturer.first,
+                }, {
+                  name: 'Rainydayz bench', 
+                  code: '12345678901234567899', 
+                  weight_in_grams: 2000, 
+                  height_in_cm: 150, 
+                  width_in_cm: 120, 
+                  length_in_cm: 200, 
+                  manufacturer: Manufacturer.first,
+                }])
+
 p "Created #{Warehouse.count} warehouse(s)"
 p "Created #{Manufacturer.count} manufacturer(s)"
+p "Created #{Product.count} product(s)"
