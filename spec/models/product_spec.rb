@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe '#valid?' do
+    it 'when all fields are correctly provided' do
+      manuf = Manufacturer.create!(tradename: 'Vesuvia', registered_name: 'Serralheria Vesuvia ME Ltda',
+                                   address: 'Estrada dos Pinhais, km 4, SC', email: 'livia@vesuvia.com.br',
+                                   telephone: '(49) 9 9450-9384', cnpj: 1234567890123)
+      product = Product.new(name: 'Clearksy table', code: '12345678901234567890', 
+                            weight_in_grams: 5000, height_in_cm: 150, 
+                            width_in_cm: 120, length_in_cm: 200, manufacturer: manuf)
+              
+      expect(product.valid?).to be true
+    end
+
     context '(presence validation)' do
       it 'is false when name is blank' do
         product = Product.new(name: '', code: '12345678901234567890', 
@@ -64,12 +75,15 @@ RSpec.describe Product, type: :model do
 
     context '(uniqueness validation)' do
       it 'is false when code was already in use' do
+        manuf = Manufacturer.create!(tradename: 'Vesuvia', registered_name: 'Serralheria Vesuvia ME Ltda',
+                                    address: 'Estrada dos Pinhais, km 4, SC', email: 'livia@vesuvia.com.br',
+                                    telephone: '(49) 9 9450-9384', cnpj: 1234567890123)
         Product.create!(name: 'Rainydayz bench', code: '12345678901234567890', 
                         weight_in_grams: 2000, height_in_cm: 150, 
-                        width_in_cm: 120, length_in_cm: 200)
+                        width_in_cm: 120, length_in_cm: 200, manufacturer: manuf)
         product = Product.new(name: 'Clearksy table', code: '12345678901234567890', 
                               weight_in_grams: 5000, height_in_cm: 120, 
-                              width_in_cm: 80, length_in_cm: 70)
+                              width_in_cm: 80, length_in_cm: 70, manufacturer: manuf)
         
         expect(product.valid?).to be false
       end

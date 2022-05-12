@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_214741) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_154907) do
   create_table "manufacturers", force: :cascade do |t|
     t.string "tradename"
     t.string "registered_name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_214741) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "manufacturer_id", null: false
+    t.index ["manufacturer_id"], name: "index_products_on_manufacturer_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -46,4 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_214741) do
     t.string "state"
   end
 
+  add_foreign_key "products", "manufacturers"
 end
