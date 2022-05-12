@@ -13,6 +13,7 @@ pt-BR:
     models:
       warehouse: Galpão
       manufacturer: Fornecedor
+      product: Produto
     attributes:
       warehouse:
         name: Nome
@@ -30,3 +31,11 @@ pt-BR:
         email: E-mail
         telephone: Telefone
         cnpj: CNPJ
+      product:
+        name: Nome
+        code: Código
+        weight_in_grams: Peso
+        height_in_cm: Altura 
+        width_in_cm: Largura 
+        length_in_cm: Comprimento
+        manufacturer: Fornecedor

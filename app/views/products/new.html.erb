@@ -1,0 +1,37 @@
+<div id='error_msgs'>
+  <% if @product.errors.any? %>
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<h1>Cadastrar novo produto</h1>
+
+<%= form_with model: @product do |f| %>
+<dl>
+  <dt><%= f.label :name %></dt>
+  <dd><%= f.text_field :name %></dd>
+
+  <dt><%= f.label :code %></dt>
+  <dd><%= f.text_field :code %></dd>
+
+  <dt><%= f.label :manufacturer_id, 'Fornecedor' %></dt>
+  <dd><%= f.collection_select :manufacturer_id, Manufacturer.order(:tradename), :id, :tradename, include_blank: true %></dd>
+
+  <dt><%= f.label :weight_in_grams, 'Peso (em gramas)' %></dt>
+  <dd><%= f.number_field :weight_in_grams %></dd>
+
+  <dt><%= f.label :height_in_cm, 'Altura (em cm)' %></dt>
+  <dd><%= f.number_field :height_in_cm %></dd>
+
+  <dt><%= f.label :width_in_cm, 'Largura (em cm)' %></dt>
+  <dd><%= f.number_field :width_in_cm %></dd>
+
+  <dt><%= f.label :length_in_cm, 'Comprimento (em cm)' %></dt>
+  <dd><%= f.number_field :length_in_cm %></dd>
+</dl>
+<div><%= f.submit 'Cadastrar produto' %></div>
+<% end %>
